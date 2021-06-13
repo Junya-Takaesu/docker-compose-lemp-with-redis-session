@@ -12,3 +12,7 @@
 * sample_app の構成に合わせて、`root` ディレクティブのパスを書き換える必要がある。
   * `root` ディレクティブのデフォルト `/var/www/php`。
   * 例えば、`sample_app/public` 配下のファイルをサーブしたいとき、`root`　ディレクティブには、`/var/www/php/public` と書き換える。
+
+## MySQL のマイグレーション
+`.docker/mysql/docker-entrypoint-initdb.d` 配下の sql ファイルが `docker-comose up` で mysql サービスが起動するときに、実行される。
+これを利用して、初期データのマイグレーションが行える。

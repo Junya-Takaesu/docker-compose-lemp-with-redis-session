@@ -1,0 +1,2 @@
+-- この sql ファイルと、docker-entrypoint-initdb.d フォルダに入っている他の sql ファイルは、
+-- docker-comose up で mysql サービスが起動するときに、実行される。
