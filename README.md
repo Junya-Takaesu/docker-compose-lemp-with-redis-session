@@ -5,3 +5,10 @@
 
 ## `.env`
 データベースのパスワードや、環境固有の設定を行うための、環境変数を定義する。(.env.sample はサンプルなので、これをコピーして`.env`ファイルを作る）
+
+## Document Root
+* sample_app フォルダが、nginx と php のサービスにマウントされる。
+* nginx がリクエストされたファイルを探す場所は `.docker/nginx/conf.d/php.conf` に書かれている `root` ディレクティブが指定しているパス。
+* sample_app の構成に合わせて、`root` ディレクティブのパスを書き換える必要がある。
+  * `root` ディレクティブのデフォルト `/var/www/php`。
+  * 例えば、`sample_app/public` 配下のファイルをサーブしたいとき、`root`　ディレクティブには、`/var/www/php/public` と書き換える。
