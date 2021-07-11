@@ -30,8 +30,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: sample_app
     volumes:
-      - ./.docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./.docker/mysql/docker-entrypoint-initdb.d/sample_app_migration.sql:/docker-entrypoint-initdb.d/sample_app_migration.sql
+      - ${MY_CNF}:/etc/mysql/conf.d/my.cnf
+      - ${MIGRATION_SQL}:/docker-entrypoint-initdb.d/sample_app_migration.sql
       - mysqldata:/var/lib/mysql
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
